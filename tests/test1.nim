@@ -9,12 +9,12 @@ import unittest
 import std/options
 import std/tables
 
-import objLoader_nim
+import objLoader
 test "can load obj":
   var test: ObjLoader = ObjLoader(file: open("tests/models/cube.obj"))
   test.parseFile()
   check test.model.isSome()
   check test.model.get.num_geom_vertices == 8
-  check test.model.get.num_text_vertices == 0
+  check test.model.get.num_text_vertices == 8
   check test.model.get.num_vertex_norms == 6
   check true
