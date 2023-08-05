@@ -111,10 +111,10 @@ proc parseFile*(loader: var ObjLoader): void =
           face.vert_indices.add(indiciesParsed[0])
           if indiciesParsed.len > 1: #if not using / delimiter
             if indiciesParsed[1] != 0:
-              face.norm_indices.add(indiciesParsed[1])
-            if indiciesParsed[2] != 0:
-              face.text_coords.add(indiciesParsed[2])
+              face.text_coords.add(indiciesParsed[1])
               loader.currentMesh.num_uvs += 1
+            if indiciesParsed[2] != 0:
+              face.norm_indices.add(indiciesParsed[2])
         loader.currentMesh.faces.add(face)
       of "curv":
         continue # [TODO]implement later
